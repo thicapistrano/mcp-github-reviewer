@@ -92,7 +92,7 @@ Use these prompts in Claude Code after the MCP server is connected:
 
 **Review with pending draft (recommended for first use):**
 
-> Review the PR 360 in dafiti-group/freight-connector and use post_pr_review_comment with status: "PENDING" so I can double-check everything on GitHub before publishing.
+> Review the PR 360 in seu-usuario/seu-repositorio and use post_pr_review_comment with status: "PENDING" so I can double-check everything on GitHub before publishing.
 
 Claude will fetch the diff, analyze the code, and save the comments as a pending draft review on GitHub. You then go to the PR on GitHub and click "Submit review" when you're happy with the comments.
 
