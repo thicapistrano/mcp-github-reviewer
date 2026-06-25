@@ -14,8 +14,6 @@ You (Claude Code) ──► MCP Server (src/index.ts) ──► GitHub API
 
 When running as an MCP server, Claude can call these tools in response to natural language prompts. You describe which PR to review, and Claude fetches the diff, analyzes the code, and posts structured inline comments.
 
-There is also a standalone script (`review.js`) that automates the same workflow without MCP — useful for CI pipelines or one-off runs outside Claude Code.
-
 ## Tools available
 
 ### `get_pull_request_diff`
@@ -86,16 +84,6 @@ Or start the server manually:
 npm start
 ```
 
-## Running the standalone script
-
-The `review.js` script runs a full automated review without MCP. Edit the `REPO_CONFIG` at the top of the file, then:
-
-```bash
-node review.js
-```
-
-It will fetch the PR diff, send it to Claude via the Anthropic API, and post the resulting comments to GitHub automatically.
-
 ## Example prompts
 
 Use these prompts in Claude Code after the MCP server is connected:
@@ -132,7 +120,6 @@ Claude will list the changed files, analyze the diff, and post inline comments d
 mcp-github-reviewer/
 ├── src/
 │   └── index.ts      # MCP server — exposes tools to Claude
-├── review.js         # Standalone script using the Anthropic API directly
 ├── package.json
 ├── tsconfig.json
 └── .env              # GITHUB_TOKEN goes here
@@ -144,6 +131,5 @@ mcp-github-reviewer/
 | ----------------------------- | ------------------------------------------------ |
 | `@modelcontextprotocol/sdk`   | MCP server framework                             |
 | `@octokit/rest`               | GitHub API client                                |
-| `@anthropic-ai/sdk`           | Anthropic Claude API (used by `review.js`)       |
 | `dotenv`                      | Loads `.env` variables                           |
 | `tsx`                         | Runs TypeScript directly without a build step    |
